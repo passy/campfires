@@ -1,0 +1,78 @@
+/* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 6, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+/* line 17, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+*:focus { outline: 0; }
+
+/* line 20, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+body { line-height: 1; color: #000; background: #fff; }
+
+/* line 23, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+ol, ul { list-style: none; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+/* line 27, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+table { border-collapse: separate; border-spacing: 0; vertical-align: middle; }
+
+/* line 30, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+/* line 33, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+q, blockquote { quotes: "" ""; }
+/* line 101, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+q:before, q:after, blockquote:before, blockquote:after { content: ""; }
+
+/* line 36, ../../../../.gem/ruby/1.8/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+a img { border: none; }
+
+@font-face { font-family: "Puritan"; font-weight: normal; src: url(../fonts/Puritan_Regular.otf) format("opentype"); }
+
+@font-face { font-family: "Puritan"; font-weight: bold; src: url(../fonts/Puritan_Bold.otf) format("opentype"); }
+
+@font-face { font-family: "Puritan"; font-style: italic; src: url(../fonts/Puritan_Italic.otf) format("opentype"); }
+
+/* line 12, ../src/screen.sass */
+body { color: white; font-size: 175%; font-family: "Puritan", "Futura", "Verdana", sans-serif; background: black; line-height: 1.5; }
+/* line 19, ../src/screen.sass */
+body h1 { font-size: 200%; font-weight: bold; }
+/* line 23, ../src/screen.sass */
+body h2 { font-size: 250%; color: #d8dbff; }
+/* line 27, ../src/screen.sass */
+body h3 { font-size: 150%; color: #d8dbff; font-style: oblique; font-weight: normal; margin-top: -120px; margin-bottom: 30px; }
+/* line 35, ../src/screen.sass */
+body pre { font-family: "Consolas", monospace; font-size: 100%; margin: 0; padding: 0; overflow: hidden; }
+/* line 43, ../src/screen.sass */
+body q:before { content: "“"; }
+/* line 45, ../src/screen.sass */
+body q:after { content: "”"; }
+/* line 48, ../src/screen.sass */
+body strong { font-weight: bold; }
+/* line 51, ../src/screen.sass */
+body .big { display: table; font-size: 250%; position: relative; height: 100%; width: 85%; }
+/* line 58, ../src/screen.sass */
+body .big div { display: table-cell; vertical-align: middle; text-align: center; }
+/* line 63, ../src/screen.sass */
+body ul { padding-right: 7%; }
+/* line 65, ../src/screen.sass */
+body ul li { list-style-position: outside; list-style: none; line-height: 2; background: transparent url('../images/arrow_small.png?1267973648') scroll no-repeat top left; padding-left: 50px; }
+/* line 72, ../src/screen.sass */
+body blockquote { line-height: 0.85; }
+/* line 75, ../src/screen.sass */
+body blockquote:before { font-size: 1000%; font-family: "Georgia", serif; content: "“"; color: rgba(255, 255, 255, 0.5); float: left; }
+/* line 82, ../src/screen.sass */
+body #presentation { position: relative; display: block; width: 1024px; height: 768px; margin: 3% auto; }
+/* line 89, ../src/screen.sass */
+body .slide { position: relative; width: 93%; height: 100%; background: transparent url('../images/background.png?1267973631') scroll no-repeat top left; background-size: 100% 100%; display: block; padding-left: 7%; }
+/* line 98, ../src/screen.sass */
+body .slide h2 { padding-top: 10%; margin-bottom: 10%; }
+/* line 102, ../src/screen.sass */
+body .slide.intro { color: #333; display: none; background-image: url('../images/background-intro.png?1267968921'); }
+/* line 108, ../src/screen.sass */
+body .slide.intro h1 { position: absolute; top: 10%; }
+/* line 112, ../src/screen.sass */
+body .slide.intro h2 { font-size: 150%; position: absolute; top: 45%; color: #9e5c7a; }
+/* line 118, ../src/screen.sass */
+body .slide.intro p { position: absolute; top: 65%; }
+/* line 122, ../src/screen.sass */
+body .slide img.full { position: absolute; top: 0; left: 0; }

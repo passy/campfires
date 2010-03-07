@@ -1,0 +1,125 @@
+/*
+  Welcome to Compass.
+  In this file you should write your main styles. (or centralize your imports)
+  Import this file using the following HTML or equivalent:
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+@import compass/reset.sass
+@import partials/fonts.sass
+
+!HIGHLIGHT_COLOR = #d8dbff
+
+body
+  color: white
+  font-size: 175%
+  font-family: "Puritan", "Futura", "Verdana", sans-serif
+  background: black
+  line-height: 1.5
+
+  h1
+    font-size: 200%
+    font-weight: bold
+
+  h2
+    font-size: 250%
+    color= !HIGHLIGHT_COLOR
+
+  h3
+    font-size: 150%
+    color= !HIGHLIGHT_COLOR
+    font-style: oblique
+    font-weight: normal
+    margin-top: -120px
+    margin-bottom: 30px
+
+  pre
+    font-family: "Consolas", monospace
+    font-size: 100%
+    margin: 0
+    padding: 0
+    overflow: hidden
+
+  q
+    &:before
+      content: "“"
+    &:after
+      content: "”"
+
+  strong
+    font-weight: bold
+
+  .big
+    display: table
+    font-size: 250%
+    position: relative
+    height: 100%
+    width: 85%
+
+    div
+      display: table-cell
+      vertical-align: middle
+      text-align: center
+
+  ul
+    padding-right: 7%
+    li
+      list-style-position: outside
+      list-style: none 
+      line-height: 2
+      background= "transparent" image_url("arrow_small.png") "scroll" "no-repeat" "top" "left"
+      padding-left: 50px
+
+  blockquote
+    line-height: 0.85
+
+    &:before
+      font-size: 1000%
+      font-family: "Georgia", serif
+      content: "“"
+      color: rgba(255, 255, 255, 0.5)
+      float: left
+
+  #presentation
+    position: relative
+    display: block
+    width: 1024px
+    height: 768px
+    margin: 3% auto
+
+  .slide
+    position: relative
+    width: 93%
+    height: 100%
+    background= "transparent" image_url("background.png") "scroll" "no-repeat" "top" "left"
+    background-size: 100% 100%
+    display: block
+    padding-left: 7%
+
+    h2
+      padding-top: 10%
+      margin-bottom: 10%
+
+    &.intro
+      color: #333
+
+      display: none
+      background-image= image_url("background-intro.png")
+
+      h1
+        position: absolute
+        top: 10%
+
+      h2
+        font-size: 150%
+        position: absolute
+        top: 45%
+        color: #9e5c7a
+
+      p
+        position: absolute
+        top: 65%
+
+    img.full
+      position: absolute
+      top: 0
+      left: 0
