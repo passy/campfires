@@ -4,298 +4,220 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Pascal Hartig <phartig@weluse.de>" />
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/SyntaxHighlighter.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/highlighter/shCore.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/highlighter/shThemeDefault.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <title>Campfire One - Git vs. Subversion</title>
 </head>
 <body>
     <section id="presentation">
         <div class="slide intro">
-            <h1>Git vs. Subversion</h1>
+            <h1>Eine Kurzeinführung</h1>
             <h2>Pascal Hartig</h2>
             <p>
-                <strong>Campfire Two</strong>, 8. Maerz 2010
+                <strong>Campfire One</strong>, 16. März 2010
             </p>
         </div>
         <div class="slide">
             <div class="big">
-                <div>Ja, wieder øhnë Ümlæute.</div>
+                <div>Was ist Node?</div>
             </div>
         </div>
         <div class="slide">
-            <img src="images/tortoise.jpg" alt="Tortoise" class="full" />
-        </div>
-        <div class="slide">
-            <img src="images/git_awesome.jpg" alt="Git" class="full" />
-        </div>
-        <div class="slide">
-            <img src="images/git_vs_subversion.jpg" alt="Git vs Subversion" class="full" />
-        </div>
-        <div class="slide">
-            <h2>Geschichtliches zu Subversion</h2>
+            <h2>Node ist</h2>
             <ul>
-                <li>Weiterentwicklung von CVS</li>
-                <li>Anfang 2000 bei CollabNet entwickelt</li>
-                <li>Erste stabile Version am 23. Februar 2004</li>
-                <li>Entstand aus der Kritik an CVS heraus und ermoeglichte
-                    Verwaltung von Verzeichnissen.</li>
+                <li>Evented I/O for V8 Javascript</li>
+                <li>V8 ist die JS-Engine von Google Chrome</li>
+                <li>hervorragend geeignet für COMET-Anwendungen</li>
             </ul>
         </div>
         <div class="slide">
-            <h2>Geschichtliches zu Subversion</h2>
+            <h2>V8 ist</h2>
             <ul>
-                <li>Weiterentwicklung von CVS</li>
-                <li>Anfang 2000 bei CollabNet entwickelt</li>
-                <li>Erste stabile Version am <strong>23(!!!).</strong> Februar 2004</li>
-                <li>Entstand aus der Kritik an CVS heraus und ermoeglichte
-                    Verwaltung von Verzeichnissen.</li>
+                <li>Entwickelt von einem kleinen dänischen Google-Team</li>
+                <li>Lead-Developer ist Lars Bak, einer der führenden
+                    VM-Entwickler mit über 20 Jahren Erfahrung</li>
+                <li>Er entwickelte HotSpot (Suns/Oracles Java-VM) » 20x
+                    Performance-Steigerung</li>
+                <li>Kein JIT, kompiliert zu Assembler</li>
+                <li>Unabhängig von Google Chrome</li>
             </ul>
         </div>
         <div class="slide">
-            <h2>Geschichtliches zu Git</h2>
+            <h2>Einschränkungen</h2>
             <ul>
-                <li>Entwickelt für die Quellcode-Verwaltung des einzigen
-                    Open-Source-Projektes: Linux</li>
-                <li>Entwicklung begann im April 2005 durch Linus Torvalds.</li>
-                <li>Kernel-Entwickler waren gezwungen die Verwendung des
-                    proprietaeren BitKeeper-Systems aufzugeben.</li>
+                <li>Kein Bytecode</li>
+                <li>Keine Threads</li>
+                <li>Keine Prozesse</li>
             </ul>
         </div>
         <div class="slide">
-            <h2>Anforderung zur Entwicklungszeit</h2>
+            <h2>Das macht node.js besonders</h2>
             <ul>
-                <li>Unterstuetzung verteilter Arbeitsablaeufe</li>
-                <li>Sehr hohe Sicherheit gegen sowohl unbeabsichtige wie auch
-                    boeswillige Verfaelschung</li>
-                <li>Hohe Effizienz</li>
+                <li>Nicht-blockierendes IO</li>
+                <li>Funktionalität für System Calls</li>
+                <li>HTTP-Bibliothek</li>
+                <li>Modularer Aufbau</li>
             </ul>
         </div>
         <div class="slide">
-            <h2>Weitere Eigenschaften</h2>
+            <div class="big"><div>Warum nicht-blockierend?</div></div>
+        </div>
+        <div class="slide">
+            <h2>Vorteile von non-blocking</h2>
             <ul>
-                <li>Nicht-lineare Entwicklung: Branches und Merging als feste
-                    Bestandteile.</li>
-                <li>Kein zentraler Server: Jeder besitzt eine lokale Kopie des
-                    gesamten Repositories.</li>
-                <li>Datentransfer zwischen den Repositories: SSH, HTTP(S), FTP,
-                    rsync oder Mail</li>
-                <li>Kryptografische Sicherheit der Projektgeschichte: Ein Commit
-                    basiert auf der Geschichte, die zu ihm gefuehrt hat.</li>
+                <li>nginx: nicht-blockierend</li>
+                <li>apache: threaded</li>
             </ul>
         </div>
         <div class="slide">
-            <h2>Noch mehr Eigenschaften</h2>
+            <img src="images/apache_nginx.png" alt="Apache vs Nginx" class="full" />
+        </div>
+        <div class="slide">
+            <h2>Vorteile von non-blocking</h2>
             <ul>
-                <li>Datenpersistenz: Geloschte Dateien, Commits und auch
-                    Branches koennen wiederhergestellt werden bis sie explizit
-                    geloescht werden.</li>
-                <li>Interoperabilitaet: Hilfsprogramme ermoeglichen
-                    Datenaustausch zwischen arch, SVN, CSV, Mercurial und Quilt.</li>
+                <li>Nicht-blockierende Server können mehr Requests in einem
+                    Zeitinterval behandeln.</li>
+                <li>Threaded Server brauchen verdammt viel Speicher!</li>
+                <li>Comet skaliert nicht mit threaded Servern.</li>
             </ul>
+        </div>
+        <div class="slide">
+            <h2>Traditionelles I/O</h2>
+            <pre class="brush: javascript; gutter: false;">
+                var data = file.read("data.txt");
+                doSomethingWith(data);
+            </pre>
+            <p>Irgendetwas stimmt hier nicht.</p>
+        </div>
+        <div class="slide troll">
+            <h2>Traditionelles I/O - FAIL!</h2>
+            <pre class="brush: javascript; gutter: false;">
+                var data = file.read("data.txt");
+                // zzzzZZZZZzzzz
+                doSomethingWith(data);
+            </pre>
+            <p>Verschwendung von CPU-Zyklen! Problem?</p>
+        </div>
+        <div class="slide">
+            <h2>Async I/O</h2>
+            <pre class="brush: javascript; gutter: false;">
+file.read("data.txt", function (data) {
+    doSomethingWith(data);
+});
+
+// Der Programmfluss laeuft weiter.
+doSomethingElse();
+            </pre>
+            <p>WIN!</p>
+        </div>
+        <div class="slide">
+            <h2>Javascript?</h2>
+            <ul>
+                <li>Wir alle können JavaScript.</li>
+                <li>JavaScript ist inzwischen eine der wichtigsten Sprachen im
+                    Web.</li>
+                <li>Viele große Unternehmen stecken einen Batzen Geld in die
+                    Entwicklung von JavaScript.</li>
+                <li>Wir können auf Serverseite genauso event-basiert
+                    programmieren wie im Frontend.</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>Beispiel für Event-Programmierung</h2>
+            <pre class="brush: javascript; gutter: false; toolbar: false;">
+document.addEventListener('click', function (event) {
+    alert(event);
+}, false);
+            </pre>
+            <p>Anonyme Funktionen sind fester Bestandteil der Sprache.</p>
         </div>
         <div class="slide">
             <div class="big">
-                <div>Zurueck zum Titel: Git vs. Subversion</div>
+                <div>Was bietet node.js?</div>
             </div>
         </div>
         <div class="slide">
-            <h2>Gemeinsamkeiten</h2>
-            <ul>
-                <li>Source-Code-Verwaltung</li>
-                <li>Branching</li>
-                <li>Tagging</li>
-                <li>Wechseln zwischen Revisionen</li>
-                <li>Ermoeglicht zentrales Repository zum Austausch</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Unterschiede</h2>
-            <ul>
-                <li>Git erzwingt den zentralen Abgleich nicht</li>
-                <li>Stattdessen: Dezentrales Revisionsmanagement</li>
-                <li>Arbeiten ohne Internet-Verbindung, Server-Zugang und
-                    Latenzen</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Installation</h2>
-            <ul>
-                <li>Win: Hahaha!</li>
-                <li>Mac OS X: <a href="http://code.google.com/p/git-osx-installer/">http://code.google.com/p/git-osx-installer/</a></li>
-                <li>Ubuntu Linux: <pre>aptitude install git-core</pre></li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>HILFE!</h2>
-            <ul>
-                <li>Git hilft bei Tippfehlern</li>
-                <li>Jeder Befehl hat eine ausfuehrliche Manpage</li>
-                <li>--help ist dein Freund!</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Terminologie</h2>
-            <h3>Das Repository</h3>
-            <ul>
-                <li><strong>SVN:</strong> Repository-Checkout ist eine Kopie <em>eines</em> Entwicklungsstandes</li>
-                <li><strong>Git:</strong> Ein Repository ist eine vollstaendige
-                Kopie aller Repository-Informationen, Commits und Branches.</li>
-                <li>Kann sowohl lokale als auch entfernte Branches beinhalten.</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Terminologie</h2>
-            <h3>Die URL</h3>
-            <ul>
-                <li><strong>SVN:</strong> Feste Adresse, meistens mit
-                    Unterverzeichnissen trunk/, branches/ und tags/.</li>
-                <li><strong>Git:</strong> Nur die Adresse eines
-                    Repository-Verzeichnisses. Enthaelt immer Branches und Tag, aber nicht als Ordner sondern als Meta-Information.</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Terminologie</h2>
-            <h3>Die Revision</h3>
-            <ul>
-                <li><strong>SVN:</strong> Dezimalnummer</li>
-                <li><strong>Git:</strong> Funktioniert nicht fuer verteilte
-                    Systeme, da jeder seine eigene Kopie weiterentwickelt und
-                    Branches unabhaengig von einem Hauptzweig sein koennen.</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Mehr zu Git-Revisionen</h2>
-            <ul>
-                <li>Identifiziert Revisionen anhand von 160-bit-langen SHA1-Hashes.</li>
-                <li>Keine Angst: Lassen sich abkuerzen (5 Zeichen sind meistens
-                eindeutig).</li>
-                <li>Zeiger auf die aktuelle Revision: HEAD</li>
-                <li>Parent: HEAD^</li>
-                <li>Parent's parent: HEAD^^ == HEAD~2</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Terminologie</h2>
-            <h3>Der Commit</h3>
-            <ul>
-                <li>Jeder Commit gehoert einem Autor und einem Comitter.</li>
-                <li>Autor kann abweichen, wenn man etwa den Patch eines anderen
-                committet.</li>
-                <li>Benutzerdaten einrichten:</li>
-            </ul>
-            <pre>
-git config --global user.name "Your Name Comes Here"
-git config --global user.email you@yourdomain.example.com
+            <h2>Module</h2>
+            hello.js
+            <pre class="brush: javascript; gutter: false;">
+exports.world = function () {
+    return "Hello World!";
+};
+            </pre>
+            main.js
+            <pre class="brush: javascript; gutter: false;">
+var hello = require('./hello'),
+    sys   = require('sys');
+
+    sys.puts(hello.world());
             </pre>
         </div>
         <div class="slide">
-            <h2>Terminologie</h2>
-            <h3>Das Kommando</h3>
-            <ul>
-                <li>git command</li>
-                <li>git help: Gibt eine Liste aus</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Terminologie?</h2>
-            <h3>Die Farben</h3>
+            <h2>Module - Output</h2>
             <pre>
-git config --global color.diff auto
-git config --global color.status auto
-git config --global color.branch auto
+                $ node main.js
+                Hello World!
             </pre>
         </div>
         <div class="slide">
-            <h2>Terminologie??</h2>
-            <h3>Visualisierung</h3>
-            <ul>
-                <li><strong>Gnome:</strong> gitg</li>
-                <li><strong>KDE:</strong> gitk</li>
-                <li><strong>Mac OS X:</strong> gitx</li>
-                <li><strong>Computer:</strong> git gui</li>
-            </ul>
+            <h2>HTTP-Server</h2>
+            <pre class="brush: javascript; gutter: false;">
+var http = require('http');
+http.createServer(function (req, res) {
+    setTimeout(function () {
+        res.writeHeader(200, {'Content-Type': 'text/plain'});
+        res.write("Danke fuer deine Geduld!");
+        res.close();
+    }, 1000);
+}).listen(4000);
+            </pre>
         </div>
         <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 1: Repository anlegen</h3>
-            <ol>
-                <li><pre>git init</pre></li>
-                <li>arbeiten ...</li>
-                <li><pre>git add .</pre></li>
-                <li><pre>git commit</pre></li>
-            </ol>
+            <h2>HTTP-Server: Ausgabe</h2>
+            <pre>
+$ curl localhost:4000
+# Eine Sekunde Pause
+Danke fuer deine Geduld!
+            </pre>
         </div>
         <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Staging und Commit</h3>
-            <ul>
-                <li><q>add</q> fuegt Dateien zum Staging hinzu.</li>
-                <li>Commit fuehrt das aus, was wir von SVN als Commit kennen.</li>
-                <li>Ermoeglicht Aufteilung in mehrere Commits</li>
-                <li>Bessere Uebersicht ueber den aktuellen Arbeitsstand</li>
-            </ul>
+            <h2>TCP-Server</h2>
+            <pre class="brush: javascript; gutter: false;">
+var tcp = require('tcp');
+tcp.createServer(function (socket) {
+    socket.addListener('connect', function () {
+        socket.write("Was geeeht?\n»");
+    });
+    socket.addListener('data', function (data) {
+        socket.write(data);
+    });
+}).listen(4000);
+            </pre>
         </div>
         <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 2: Diff</h3>
-            <ul>
-                <li>Differenz zum HEAD: <pre>git diff</pre></li>
-                <li>Differenz der Datei [pfad] zur [revision]<pre>git diff [revision] -- [pfad]</pre></li>
-                <li>Patch [pfad] anwenden<pre>git apply [pfad]</pre></li>
-            </ul>
+            <h2>TCP-Server: Ausgabe</h2>
+            <pre>
+$ nc localhost 4000
+Was geeeht?
+» Toll!
+Toll!
+            </pre>
         </div>
         <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 3: Status</h3>
-            <ul>
-                <li>git status</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 4: Checkout</h3>
-            <ol>
-                <li>Wechseln zwischen Branches</li>
-                <li>Neue Branch anlegen und wechseln</li>
-                <li>Springen zu Revision</li>
-            </ol>
-        </div>
-        <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 5: Browsing</h3>
-            <ul>
-                <li><pre>git log</pre></li>
-                <li><pre>git blame</pre></li>
-                <li><pre>git show</pre></li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 6: Branching/Tagging</h3>
-            <ul>
-                <li><pre>git branch</pre></li>
-                <li><pre>git tag</pre></li>
-                <li><pre>git checkout</pre></li>
-                <li><pre>git merge</pre></li>
-                <li><pre>git rebase</pre></li>
-                <li><pre>git cherry-pick</pre></li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Tutorial</h2>
-            <h3>Schritt 7: Remoting</h3>
-            <ul>
-                <li><pre>git clone</pre></li>
-                <li><pre>git checkout -t -b</pre></li>
-                <li><pre>git fetch</pre></li>
-                <li><pre>git pull</pre></li>
-                <li><pre>git push</pre></li>
-            </ul>
-        </div>
-        <div class="slide">
-            <div class="big">
-                <div>Alle noch da? Dann zu gitorious.</div>
-            </div>
+            <h2>Vorsicht!</h2>
+            <h3>Es gibt nur einen Thread!</h3>
+            
+            <pre class="brush: javascript; gutter: false;">
+file.read('file.txt', function (data) {
+    // Niemals ausgeloest
+});
+while (true) {
+    // Blockiert den gesamten Prozess!
+}
+            </pre>
+            <p><strong>Merke:</strong> node.js ist eine schlechte Idee für CPU-gebundene Algorithmen.</p>
+            <p>Zukünftige Lösung: WebWorkers!</p>
         </div>
     </section>
     <script type="text/javascript" charset="utf-8"
@@ -305,11 +227,13 @@ git config --global color.branch auto
     <script type="text/javascript" charset="utf-8"
             src="js/shCore.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="js/shBrushPython.js"></script>
+            src="js/highlighter/shCore.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="js/highlighter/shBrushJScript.js"></script>
     <script type="text/javascript" charset="utf-8">
     //<![CDATA[
-    $("#presentation").presentation();    
-    dp.SyntaxHighlighter.HighlightAll('code', false, false);
+    $("#presentation").presentation();
+    SyntaxHighlighter.all();
     //]]>
     </script>
 </body>

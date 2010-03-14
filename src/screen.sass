@@ -52,6 +52,7 @@ body
     display: table
     font-size: 250%
     position: relative
+    margin: 0 auto
     height: 100%
     width: 85%
 
@@ -87,37 +88,44 @@ body
     margin: 3% auto
 
   .slide
+    width= 1024px - ( 120px * 2)
+    height= 768px - ( 70px * 2 )
     position: relative
-    width: 93%
-    height: 100%
-    background= "transparent" image_url("background.png") "scroll" "no-repeat" "top" "left"
-    background-size: 100% 100%
+    background= "transparent" image_url("background2.jpg") "scroll" "no-repeat" "top" "left"
+    background-size: 1024px 768px
+    -moz-background-size: 1024px 768px
     display: block
-    padding-left: 7%
+    padding: 70px 120px 70px 120px
+
+    &.nopadd
+      padding: 0
+
+    &.troll
+      background-image= image_url("background_troll.jpg")
 
     h2
-      padding-top: 10%
       margin-bottom: 10%
 
     &.intro
-      color: #333
+      color: #e3e3e3
 
       display: none
       background-image= image_url("background-intro.png")
 
       h1
         position: absolute
-        top: 10%
+        top: 414px
+        left: 250px
 
       h2
         font-size: 150%
         position: absolute
-        top: 45%
-        color: #9e5c7a
+        top: 660px
+        color: #b9c949
 
       p
         position: absolute
-        top: 65%
+        top: 720px
 
     img.full
       position: absolute

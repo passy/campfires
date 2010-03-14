@@ -49,30 +49,34 @@ body q:after { content: "”"; }
 /* line 48, ../src/screen.sass */
 body strong { font-weight: bold; }
 /* line 51, ../src/screen.sass */
-body .big { display: table; font-size: 250%; position: relative; height: 100%; width: 85%; }
-/* line 58, ../src/screen.sass */
+body .big { display: table; font-size: 250%; position: relative; margin: 0 auto; height: 100%; width: 85%; }
+/* line 59, ../src/screen.sass */
 body .big div { display: table-cell; vertical-align: middle; text-align: center; }
-/* line 63, ../src/screen.sass */
+/* line 64, ../src/screen.sass */
 body ul { padding-right: 7%; }
-/* line 65, ../src/screen.sass */
+/* line 66, ../src/screen.sass */
 body ul li { list-style-position: outside; list-style: none; line-height: 2; background: transparent url('../images/arrow_small.png?1267973648') scroll no-repeat top left; padding-left: 50px; }
-/* line 72, ../src/screen.sass */
+/* line 73, ../src/screen.sass */
 body blockquote { line-height: 0.85; }
-/* line 75, ../src/screen.sass */
+/* line 76, ../src/screen.sass */
 body blockquote:before { font-size: 1000%; font-family: "Georgia", serif; content: "“"; color: rgba(255, 255, 255, 0.5); float: left; }
-/* line 82, ../src/screen.sass */
+/* line 83, ../src/screen.sass */
 body #presentation { position: relative; display: block; width: 1024px; height: 768px; margin: 3% auto; }
-/* line 89, ../src/screen.sass */
-body .slide { position: relative; width: 93%; height: 100%; background: transparent url('../images/background.png?1267973631') scroll no-repeat top left; background-size: 100% 100%; display: block; padding-left: 7%; }
-/* line 98, ../src/screen.sass */
-body .slide h2 { padding-top: 10%; margin-bottom: 10%; }
-/* line 102, ../src/screen.sass */
-body .slide.intro { color: #333; display: none; background-image: url('../images/background-intro.png?1267968921'); }
-/* line 108, ../src/screen.sass */
-body .slide.intro h1 { position: absolute; top: 10%; }
-/* line 112, ../src/screen.sass */
-body .slide.intro h2 { font-size: 150%; position: absolute; top: 45%; color: #9e5c7a; }
-/* line 118, ../src/screen.sass */
-body .slide.intro p { position: absolute; top: 65%; }
-/* line 122, ../src/screen.sass */
+/* line 90, ../src/screen.sass */
+body .slide { width: 784px; height: 628px; position: relative; background: transparent url('../images/background2.jpg?1268570379') scroll no-repeat top left; background-size: 1024px 768px; -moz-background-size: 1024px 768px; display: block; padding: 70px 120px 70px 120px; }
+/* line 100, ../src/screen.sass */
+body .slide.nopadd { padding: 0; }
+/* line 103, ../src/screen.sass */
+body .slide.troll { background-image: url('../images/background_troll.jpg?1268584380'); }
+/* line 106, ../src/screen.sass */
+body .slide h2 { margin-bottom: 10%; }
+/* line 109, ../src/screen.sass */
+body .slide.intro { color: #e3e3e3; display: none; background-image: url('../images/background-intro.png?1268571194'); }
+/* line 115, ../src/screen.sass */
+body .slide.intro h1 { position: absolute; top: 414px; left: 250px; }
+/* line 120, ../src/screen.sass */
+body .slide.intro h2 { font-size: 150%; position: absolute; top: 660px; color: #b9c949; }
+/* line 126, ../src/screen.sass */
+body .slide.intro p { position: absolute; top: 720px; }
+/* line 130, ../src/screen.sass */
 body .slide img.full { position: absolute; top: 0; left: 0; }
