@@ -1,0 +1,1456 @@
+// To configure blueprint, edit the partials/base.sass file.
+@import blueprint/reset.sass
++blueprint-global-reset
+@import partials/base.sass
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+
+@import partials/constants.sass
+@import partials/mixins.sass
+@import partials/tabs.sass
+@import partials/fonts.sass
+@import partials/boxes.sass
+@import partials/tag_complete.sass
+@import partials/rte.sass
+@import partials/jquery-ui.sass
+
+//Recommended Blueprint configuration with scoping and semantic layout:
++blueprint-typography
++blueprint-utilities
++blueprint-grid
++blueprint-interaction
+
+// Looks like this is missing in blueprint reset
+ul
+  padding: 0
+
+body
+  background= white image_url("bg.png") "scroll" "repeat-x" 0 0
+  a
+    &:link, &:active, &:visited
+      :color #9da60a
+      :text-decoration none
+  h5
+    margin: 0
+
+  .florales
+    position: absolute
+    top: 0
+    width: 100%
+
+    &.florales_left
+      height: 377px
+      background= "transparent" image_url("florales_left.png") "scroll" "no-repeat" "left" "top"
+
+    &.florales_right
+      height: 380px
+      top: 200px
+      background= "transparent" image_url("florales_right.png") "scroll" "no-repeat" "right" "top"
+
+  #container
+    +container
+    border: 1px solid #b0b0b0
+    +border-radius(4px)
+    +border-radius(0, "topright")
+    +border-radius(0, "topleft")
+    +box-shadow(0, 0, 5px, #b0b0b0)
+    overflow: hidden
+    background: white
+    min-height: 650px
+
+    padding: 10px 10px 10px 20px
+    position: relative
+    width= !MAIN_WIDTH - (15px*2)
+
+    #loading
+      position: fixed
+      display: none
+      background-color: rgb(226, 226, 226)
+      background-color: rgba(226, 226, 226, 0.75)
+      padding: 4px 8px
+      :-moz-border-radius 5px
+      :-webkit-border-radius 5px
+      top: 10px
+      right: 10px
+      img
+        margin-bottom: -3px
+
+  #header, #footer, #navigation, #sub_navigation, .spacer, #social_bookmarking
+    +column(!blueprint_grid_columns)
+  #header
+    h1
+      margin-bottom: 7px
+      width: 200px
+      float: left
+
+      span
+        display: none
+
+    #header_ad_box
+      +border-radius(4px)
+      :border= 3px "solid" !BORDER_COLOR1
+      :width 468px
+      :height 60px
+      :float right
+      :text-align center
+      :vertical-align middle
+
+  #navigation2
+    clear: left
+    position: relative
+    width: 940px
+    height: 36px
+    z-index: 50
+
+    #nav
+      font-size: 95%
+      list-style: none
+      margin: 0
+      background= image_url("nav_header.png") "scroll" "no-repeat" 0 0
+      overflow: visible
+      height: 36px
+
+      &.reduced, &.midwife
+        background= image_url("nav_header_reduced_he.png") "scroll" "no-repeat" 0 0
+
+        li
+          &:hover, &.active
+            background= image_url("nav_header_reduced_he.png") "scroll" "no-repeat"
+
+          &#menu_gifts
+            width: 121px
+            a
+              width: inherit
+            &:hover, &.active
+              background-position: -300px -36px
+            +menu_hover_icon(-64px, 0)
+
+          &#menu_experts
+            width: 121px
+            &:hover, &.active
+              background-position: -420px -36px
+            +menu_hover_icon(0, -372px)
+
+          &#menu_beta
+            margin-left: 284px
+            &:hover, &.active
+              background-position: -826px -36px
+            +menu_hover_icon(0, 0)
+          &#menu_logout
+            margin-left: 284px
+            &:hover, &.active
+              background-position: -826px -36px
+            +menu_hover_icon(-96px, 2px)
+            
+      &.midwife
+        background= image_url("nav_header_midwife.png") "scroll" "no-repeat" 0 0
+        li
+          &:hover, &.active
+            background= image_url("nav_header_midwife.png") "scroll" "no-repeat"
+          &#menu_recommend
+            width: 114px
+            &:hover, &.active
+              background-position: -300px -36px
+            +menu_hover_icon(-64px, 0)
+          &#menu_search
+            width: 125px
+            &:hover, &.active
+              background-position: -413px -36px
+            a
+              width: 125px
+            +menu_hover_icon(0, -372px)
+          &#menu_experts
+            width: 114px
+            &:hover, &.active
+              background-position: -537px -36px
+            +menu_hover_icon(0, -372px)
+          &#menu_logout
+            margin-left: 175px
+
+      li
+        display: inline
+        position: relative
+        float: left
+        width: 114px
+        margin-left: -1px
+
+        ul
+          list-style: none
+          margin: -2px 0 0 1px
+          width: 110px
+          position: absolute
+          top: 36px
+          display: none
+          border: 1px solid #bebebe
+          border-top: none
+          +border-radius(4px)
+          +border-radius(0, "topleft")
+          +border-radius(0, "topright")
+          +box-shadow(0, 0, 5px, #b0b0b0)
+          background-color: #e2e2e2
+
+          a
+            &:link, &:active, &:visited
+              background: none
+              height: 26px
+              line-height: 26px
+              font-weight: normal
+              color: #99AE00
+
+          li
+            &:hover
+              background: transparent
+
+        &:hover
+          background= "transparent" image_url("nav_header.png") "scroll" "no-repeat"
+
+          ul
+            // Show submenu
+            display: block
+            li
+              width: 111px
+              &:hover
+                background: #c2c2c2
+
+        a
+          &:link, &:active, &:visited
+            color: #fff
+            font-family: "Tahoma", sans-serif
+            font-weight: bold
+            float: left
+            height: 36px
+            overflow: hidden
+            position: relative
+            width: 114px
+            text-align: center
+            line-height: 33px
+            span
+              line-height: 33px
+              &.pre
+                color: #ffff00
+              &.m_icon
+                :display inline-block
+                :width 16px
+                :height 16px
+                :background= "transparent" image_url("icons.png") "scroll" "no-repeat" 0 0
+                :margin
+                  :right 3px
+                  :bottom -3px
+        &#menu_mibaby, &#menu_categories
+          margin-left: 0
+          &:hover, &.active
+            background-position: 0 -36px
+          +menu_hover_icon(0, 0)
+        &#menu_empty
+          width: 0
+          &:hover
+            background: transparent
+        &#menu_home
+          margin-left: 73px
+          &:hover, &.active
+            background-position: -187px -36px
+          +menu_hover_icon(-16px, 0)
+        &#menu_community
+          &:hover
+            background-position: -300px -36px
+          +menu_hover_icon(-32px, 0)
+        &#menu_profile
+          &:hover
+            background-position: -413px -36px
+          +menu_hover_icon(-48px, 0)
+        &#menu_gadgets
+          &:hover
+            background-position: -526px -36px
+          +menu_hover_icon(-64px, 0)
+        &#menu_mail
+          &:hover
+            background-position: -639px -36px
+          +menu_hover_icon(-80px, 0)
+        &#menu_empty2
+          width: 0
+          &:hover
+            background: transparent
+        &#menu_login
+          margin-left: 73px
+          &:hover
+            background-position: -826px -36px
+          +menu_hover_icon(-96px, 2px)
+
+
+  #sub_navigation
+
+    #new_gadget_btn
+      background= "transparent" image_url("profile_gadget_sprite.png") "scroll" "no-repeat" 0 -224px
+      width: 173px
+      height: 29px
+      z-index: 10
+      cursor: pointer
+      float: left
+      margin-top: -5px
+      margin-left: 10px
+
+      span
+        line-height: 26px
+        margin-left: 35px
+        color: white
+        font-weight: bold
+
+
+    .quicklinks
+      :float left
+      :margin-left 16px
+
+    .login
+      :float right
+      :margin-right 23px
+      .icon
+        background= image_url("icons.png") 0 -32px "no-repeat"
+        :width 9px
+        :height 8px
+        :margin-right 5px
+
+    //#top_search_box
+      //+box("search", "right")
+      //:z-index 201
+      //:position relative
+      //:right 15px
+
+    #top_search_box
+      width: 171px
+      height: 29px
+      background= "transparent" image_url("profile_gadget_sprite.png") "scroll" "no-repeat" 0 -253px
+      z-index: 10
+      float: right
+      margin: -5px 20px 0 0
+      outline: none
+
+      input
+        &:focus
+          outline: none
+
+      span
+        font-weight: bold
+        color: white
+        line-height: 26px
+        margin-left: 5px
+
+      input
+        border: none
+        width: 115px
+        background: transparent
+
+  .spacer
+    border-bottom: 1px dotted #767676
+    margin-top: 10px
+    margin-bottom: 10px
+
+    .left
+      float: left
+    .right
+      float: right
+
+      a
+        &:link, &:visited, &:hover
+          color: #6a8dc6
+          font-weight: bold
+
+  #left
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    margin-top: 40px
+    +column(3)
+    +boxes
+    +buttons
+    .rating
+      text-align: center
+      margin-top: 10px
+  #content
+    +column(7, true)
+    +tabs
+    h1
+      font-size: 18px
+      margin-left: 15px
+  #full_left
+    +column(12, true)
+    h2
+      margin: 0
+
+    &.ads
+      +column(11, true)
+
+  // Provides a class for titles with surrounding arrows
+  .arrow_header
+    :color= !TEXT_COLOR1
+    :font-weight bold
+
+    .arrow
+      :color= !LINK_COLOR1
+
+  #ads_right
+    +column(2, true)
+    :background= "transparent" image_url("ad_right.png") "scroll" "no-repeat" 0 0
+    :width 158px
+    :height 657px
+    :float right
+
+    :position relative
+
+    .title
+      :position absolute
+      :top 10px
+      :left 10px
+      :width 84px
+      :text-align center
+
+    .banner
+      :position absolute
+      :top 37px
+      :left 19px
+
+
+  #social_bookmarking
+    :text-align center
+    p
+      margin-bottom: 0
+    .addthis_button
+      img
+        :width 125px
+        :height 16px
+
+
+  #footer
+    position: relative
+    z-index: 500
+    clear: both
+    display: block
+    float: none
+    text-align: center
+    width= !MAIN_WIDTH
+    margin: 10px auto 20px auto
+    color: #777
+
+    .mtop
+      margin-top: 1em
+
+    a
+      &:link, &:active, &:visited
+        color: #777
+        margin: 0 10px
+
+      &.weluse
+        margin: 0
+        img
+          width: 25px
+          height: 24px
+          margin-bottom: -5px
+
+          &.img1
+            background= image_url("icons.png") "scroll" "no-repeat" -28px -222px
+            z-index: 4
+          &.img2
+            background= image_url("icons.png") "scroll" "no-repeat" 0 -222px
+            z-index: 5
+
+    .flagwrapper
+      img
+        width: 16px
+        height: 11px
+
+        background= "transparent" image_url("icons.png") "scroll" "no-repeat" 0 0
+
+        &.flag_us
+          background-position: -48px -210px
+
+          &:hover
+            background-position: -32px -210px
+
+        &.flag_de
+          background-position: -16px -210px
+
+          &:hover
+            background-position: 0 -210px
+
+  table
+    width: auto
+  /*.message
+    border: 1px solid #c2c2c2
+    background: #e2e2e2
+    padding: 5px 8px
+    margin: 10px
+    +border-radius(4px)
+    font-size: 14px*/
+
+
+  .action_list
+    list-style: none
+    margin: 0
+
+    li
+      list-style: none
+      padding-left: 16px
+      background= "transparent" image_url("icons.png") "scroll" "no-repeat" 0 -159px
+
+  .box_big
+    h1, h2, h3, h4
+      text-transform: uppercase
+
+  h2, h3, h4
+    :font-family "Tahoma", "Arial", sans-serif
+    color= !TEXT_COLOR1
+  h2
+    :font-size 1.9em
+  div.ttip
+    border: 1px solid #c6c6c6
+    +border-radius(4px)
+    padding: 5px 10px
+    width: 230px
+    display: none
+    text-align: left
+    font-size: 12px
+    z-index: 9999
+    background: #e2e2e2
+    color= !TEXT_COLOR1
+  div.tooltip
+    width: 325px
+  .left_float
+    :float left
+  .right_float
+    :float right
+  .paging
+    :color #CCCCCC
+    .disabled
+      :display inline
+  .pos_relative
+    :position relative
+
+  .pointer
+    :cursor pointer
+
+  .bg_white
+    :background-color #fff
+
+  .border_gray
+    :border 1px solid #c2c2c2
+
+  .middle
+    :display table-cell
+    :vertical-align middle
+
+  #pic
+    text-align: center
+    #gadget_picture
+      text-align: center
+  .star
+    +star(0, -48px)
+
+  .no_star
+    +star(-16px, -48px)
+
+  #add_gadget
+    +border-radius(5px)
+    :background= image_url("new_gadget.png") "scroll" "no-repeat"
+    :display none
+    :border 6px solid rgba(0,0,0,0.5)
+    :border-top none
+    :width 698px
+    :height 344px
+    :position absolute
+    :top 121px
+    :z-index 200
+    .left
+      :width 470px
+      :margin-top 48px
+      :margin-left 24px
+      :float left
+      :position relative
+    .right
+      :margin-top 48px
+      :float left
+      :margin-left 20px
+      :position relative
+      :width 180px
+      .existingProducts
+        :list-style-type none
+        :margin-left 0
+      .info
+        :position absolute
+        :top 210px
+        :border-left 10px solid #C6D20B
+        :padding-left 5px
+        :width 150px
+
+    .abort
+      :right 120px
+      :top 253px
+      :position absolute
+
+    .button_plus
+      :top 250px
+      :right 10px
+      :position absolute
+
+
+    h3
+      :font-weight bold
+      :font-size 14px
+    form
+      label, h4, .tags
+        :margin-left 10px
+      .field
+        :width 204px
+        :height 16px
+        :padding 6px
+        :line-height 26px
+        :border none
+        background= image_url("new_gadget_input.png") "scroll" "no-repeat"
+      .field_wrapper, h4
+        :margin-top 10px
+
+        &.tagbox
+          :position relative
+          :font-weight bold
+      h4
+        :font-size 12px
+        :margin-bottom 5px
+
+
+      .tags
+        span
+          +border-radius(4px)
+          :position relative
+          :background-color #e2e2e2
+          :padding 2px 15px 2px 4px
+          :margin-right 2px
+        a.closebutton
+          position: absolute
+          right: 4px
+          top: 6px
+          display: block
+          width: 7px
+          height: 7px
+          font-size: 1px
+          :background= image_url("close.gif") "scroll" "no-repeat"
+
+          &:hover
+            :background= image_url("close.gif") 0 -7px "scroll" "no-repeat"
+
+      +tag_completion
+      .input_submit
+        +box2("input_submit", "left")
+        :cursor pointer
+
+  // Deactivated to make side effects visible. Won't be reactivated,
+  // because it's stupid, but if one might ask where this has gone,
+  // it's here and it's dead.
+  //.abort
+    :font-size 14px
+    :cursor pointer
+    img
+      margin-right: 5px
+      margin-bottom: -1px
+
+  .rating
+    .star-rating, .star-rating a:hover, .star-rating a:active, .star-rating a:focus, .star-rating .current-rating
+      background= image_url("star.png") "repeat-x" "scroll" "left" -1000px
+
+    .star-rating
+      :background-position left top
+      :height 16px
+      :list-style none
+      :overflow hidden
+      :padding 0
+      :position relative
+      :width 80px
+      :margin 2px auto
+
+    .star-rating li
+      :display inline
+
+    .star-rating a, .star-rating .current-rating
+      :border none
+      :height 16px
+      :left 0
+      :line-height 16px
+      :outline none
+      :overflow hidden
+      :position absolute
+      :text-indent -1000em
+      :top 0
+
+    .star-rating a:hover, .star-rating a:active, .star-rating a:focus
+      :background-position left bottom
+
+    .star-rating .current-rating
+      :background-position left center
+      :z-index 1
+
+  .ui-tabs .ui-tabs-hide
+    display: none
+
+  .uploadifyQueueItem
+    font: 11px Verdana, Geneva, sans-serif
+    border-bottom: 1px solid #E5E5E5
+    padding: 5%
+    width: 90%
+
+  .uploadifyError
+    border: 2px solid #FBCBBC !important
+    background-color: #FDE5DD !important
+
+  .uploadifyQueueItem .cancel
+    float: right
+
+  .uploadifyProgress
+    background-color: #FFFFFF
+    border-top: 1px solid #808080
+    border-left: 1px solid #808080
+    border-right: 1px solid #C5C5C5
+    border-bottom: 1px solid #C5C5C5
+    margin-top: 10px
+    width: 100%
+
+  .uploadifyProgressBar
+    background-color: #0099FF
+    width: 1px
+    height: 3px
+
+  table.cake-sql-log
+    :margin-bottom 1.4em
+    :width 100%
+    th
+      :font-weight bold
+    thead th
+      :background= !blueprint_table_header_color
+    th, td, caption
+      :padding 4px 10px 4px 5px
+    tr.even td
+      :background= !blueprint_table_stripe_color
+    tfoot
+      :font-style italic
+    caption
+      :background #eee
+
+  #tag_name_suggestion_list
+    display: none
+    position: absolute
+    top: 20px
+    width: 160px
+
+  #jquery-overlay
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 990
+    width: 100%
+    height: 500px
+
+  #jquery-lightbox
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 999
+    text-align: center
+    line-height: 0
+
+    a img
+      border: none
+
+
+  #lightbox-container-image-box
+    position: relative
+    background-color: #fff
+    width: 250px
+    height: 250px
+    margin: 0 auto
+
+
+  #lightbox-container-image
+    padding: 10px
+
+
+  #lightbox-loading
+    position: absolute
+    top: 40%
+    left: 0%
+    height: 25%
+    width: 100%
+    text-align: center
+    line-height: 0
+
+
+  #lightbox-nav
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    z-index: 10
+
+
+  #lightbox-container-image-box > #lightbox-nav
+    left: 0
+
+
+  #lightbox-nav a
+    outline: none
+
+
+  #lightbox-nav-btnPrev, #lightbox-nav-btnNext
+    width: 49%
+    height: 100%
+    zoom: 1
+    display: block
+
+
+  #lightbox-nav-btnPrev
+    left: 0
+    float: left
+
+
+  #lightbox-nav-btnNext
+    right: 0
+    float: right
+
+
+  #lightbox-container-image-data-box
+    font: 10px Verdana, Helvetica, sans-serif
+    background-color: #fff
+    margin: 0 auto
+    line-height: 1.4em
+    overflow: auto
+    width: 100%
+    padding: 0 10px 0
+
+
+  #lightbox-container-image-data
+    padding: 0 10px
+    color: #666
+
+    #lightbox-image-details
+      width: 70%
+      float: left
+      text-align: left
+
+
+  #lightbox-image-details-caption
+    font-weight: bold
+
+
+  #lightbox-image-details-currentNumber
+    display: block
+    clear: left
+    padding-bottom: 1.0em
+
+
+  #lightbox-secNav-btnClose
+    width: 66px
+    float: right
+    padding-bottom: 0.7em
+
+  .delete_wrapper
+    :position relative
+    :float left
+    :margin 2px
+
+  .delete_wrapper:hover .delete_icon
+    background= image_url("delete.png") "scroll" "no-repeat"
+  .delete_icon
+    :cursor pointer
+    :position absolute
+    :right 4px
+    :top 4px
+    :width 16px
+    :height 16px
+  img.gender
+    background= image_url("male_female_sprite.png") 0 0 "no-repeat"
+    width: 14px
+    height: 14px
+    margin-right: 3px
+
+    .female
+      background-position: 0 -14px
+      height: 16px
+
+  .taglist
+    +inline_list
+    margin: 14px 0 0 7px
+    // Allows margin-bottom if needed.
+    overflow: hidden
+    li
+      display: block
+      float: left
+      width: 100px
+      line-height: 20px
+
+  .button_plus
+    :background= "transparent" image_url("button_template.png") 0 0 "no-repeat"
+    :border none
+    :padding 0
+    :height 29px
+    :text-decoration none
+    :color white
+    :font-weight bold
+    :display inline-block
+    :cursor pointer
+
+    &:link, &:visited
+      color: white
+
+    &:hover, &:active
+      background-position: 0 -58px
+
+      span
+        background-position: right -87px
+
+    span
+      display: block
+      background: inherit
+      background-position: right -29px
+      height: inherit
+      margin-left: 25px
+      padding: 0 10px 0 7px
+      line-height: 29px
+
+    &.clean
+      :background-position 0 -116px
+
+      &:hover, &:active
+        :background-position 0 -174px
+
+        span
+          :background-position right -203px
+
+      .icon
+        margin: 0 0 -5px -3px
+
+      span
+        :background-position right -145px
+        :margin-left 6px
+
+    &.disabled
+      :background-position 0 -232px
+      :cursor default
+      &:hover, &:active
+        :background-position 0 -232px
+
+        span
+          :background-position right -261px
+      span
+        :background-position right -261px
+
+
+  input.filter
+    :border 1px solid #e2e2e2
+    :background #e2e2e2
+    +border-radius(5px)
+    :width 200px
+    :padding 2px
+
+  input.datepicker, input.datepicker_he
+    background= "transparent" image_url("icons.png") "scroll" "no-repeat" "right" -144px
+
+  a.comments
+    background= "transparent" image_url("icons.png") "scroll" "no-repeat" -96px -48px
+    padding-left: 18px
+    padding-bottom: 1px
+    display: inline-block
+
+  .icon
+    background= "transparent" image_url("icons.png") "scroll" "no-repeat" 0 0
+    width: 16px
+    height: 16px
+    display: inline-block
+
+    &.plus
+      background-position: -80px -48px
+
+    &.edit_pen
+      background-position: -10px -318px
+
+  .jcrop-holder
+    text-align: left
+  .jcrop-vline, .jcrop-hline
+    font-size: 0
+    position: absolute
+    background= #fff image_url("Jcrop.gif") "top" "left" "repeat"
+  .jcrop-vline
+    height: 100%
+    width: 1px !important
+  .jcrop-hline
+    width: 100%
+    height: 1px !important
+  .jcrop-handle
+    font-size: 1px
+    width: 7px !important
+    height: 7px !important
+    border: 1px #eee solid
+    background-color: #333
+    *width: 9px
+    *height: 9px
+  .jcrop-tracker
+    width: 100%
+    height: 100%
+  .custom .jcrop-vline, .custom .jcrop-hline
+    background: yellow
+  .custom .jcrop-handle
+    border-color: black
+    background-color: #C7BB00
+    +border-radius(3px)
+
+  .hidden
+    display: none
+
+  .clipwrapper
+    position: relative
+
+    img
+      position: absolute
+
+  // Remove me!
+  .error
+    .title
+      color: black
+      font-weight: bold
+      font-size: 120%
+  .gadget_rankings
+    span
+      font-weight: bold
+      font-size: 16px
+    ol
+      margin: 0
+      margin-left: 30px
+  // Default rating
+  +mini_star()
+
+  p.form
+    :margin-bottom 0
+
+  input.error
+    background-color= !ERROR_BGCOLOR
+    border-color= !ERROR_COLOR
+
+  .basic
+    fieldset
+      :border none
+
+    input, select, textarea
+      :border 1px solid #CCCCCC
+      :color #333333
+      :font-family "Verdana", "Lucida Grande", "Arial", sans-serif
+      :font-size 10pt
+      :padding 2px 4px
+      :background transparent
+
+    .input
+      :margin 5px 0
+
+    label
+      :width 70px
+      :display block
+      :float left
+
+    object
+      :margin-left 70px
+  #login
+    fieldset
+      // legend
+      :font-weight bold
+      :margin 20px 0 0
+
+    div.input
+      :clear both
+      :margin-top 10px
+      :width 275px
+      :margin-left 10px
+
+    div.textarea
+      :width 450px
+
+    div.fields
+      :float left
+      :width 290px
+
+    input, select
+      :width 265px
+
+    .input.checkbox input
+      :width 16px
+
+    .input.checkbox label
+      :width 248px
+
+    .text input:focus, .password input:focus, select:focus, textarea:focus, .text input:hover, .password input:hover, select:hover, textarea:hover
+      //:background-color rgba(198,210,11, 0.5)
+      :background-color #F4F6CE
+      :border-color #999999
+
+    .submit
+      :margin-top 10px
+      :margin-left 10px
+      input
+        :width 274px
+    .message
+      :background-color #FAE9E6
+      :border 1px solid red
+      :clear both
+      :font-weight bold
+      :padding 5px
+      :text-align center
+
+  // Form errors
+  // XXX: This needs some real styling!
+  .errorlist
+    background= #FF5353 image_url("stripes_red.png") "scroll"
+    :clear both
+    :border 3px double #fff
+    :list-style-type square
+    :margin 0 0 -10px -2px
+    :width 75%
+
+    li
+      :color #000
+      :margin-left 20px
+      :line-height 20px
+
+  .form2
+    input, select
+      +border-radius(4px)
+      border: 1px solid rgb(198, 210, 11)
+      height: 16px
+      padding: 6px
+
+    select
+      height: 30px
+
+    label
+      margin-left: 10px
+      display: block
+
+  #profile_gadget
+    width: 700px
+    margin: 0 auto
+    text-align: center
+    background-color: white
+    // Temporary
+    min-height: 350px
+
+    .left_column,
+    .right_column
+      min-height: 200px
+      float: left
+      width: 240px
+      position: relative
+
+      .floating_box
+        +border-radius(12px)
+        border: 1px solid black
+        position: absolute
+        background-color: rgba(0, 0, 0, 0.5)
+        top: 68px
+        height: 90px
+        width: 180px
+        color: white
+
+        .product_name
+          margin-top: 10px
+          font-weight: bold
+
+        .button_wrap
+          position: relative
+          clear: both
+
+          a
+            margin-right: 30px
+            display: block
+            float: left
+            width: 28px
+            height: 30px
+            background= "transparent" image_url("profile_gadget_sprite.png") 0 0 "no-repeat"
+
+            &.wantit
+              background-position: 1px -136px
+
+            &.deleteit
+              background-position: -27px -136px
+
+            &.gotit
+              background-position: -55px -136px
+
+        img
+          +border-radius(2px)
+          border: 1px solid #e2e2e2
+          margin-top: 12px
+
+        p
+          font-size: 90%
+          margin: 4px 0 0 0
+
+      .filter
+        position: absolute
+        top: 48px
+        display: block
+        width: 16px
+        height: 16px
+        background= "transparent" image_url("icons.png") -32px -48px "no-repeat"
+
+        &:hover
+          background-position: -48px -48px
+
+      img.gwbutton
+        width: 53px
+        height: 57px
+        position: absolute
+        top: 16px
+        background= "transparent" image_url("profile_gadget_sprite.png") 0 -71px "no-repeat"
+
+        &.gotit
+          left: 6px
+
+        &.wantit
+          background-position: -54px -71px
+          right: 6px
+
+      .wheel
+        width: 53px
+        height: 71px
+        background= "transparent" image_url("profile_gadget_sprite.png") 0 0 "no-repeat"
+        position: absolute
+        top: 78px
+
+        .upper,
+        .lower
+          display: block
+          height: 35px
+          width: 71px
+
+      &.left_column
+        // background-color: #ffcccc
+
+        .wheel
+          background-position: 0 0
+          right: -25px
+
+        .filter
+          left: 63px
+
+        .floating_box
+          text-align: left
+          padding-left: 14px
+          img
+            float: right
+            margin-right: 13px
+
+      &.right_column
+        // background-color: #ccffcc
+
+        .wheel
+          background-position: -53px 0
+          left: -25px
+
+        .filter
+          right: 63px
+
+        .floating_box
+          text-align: right
+          right: 0
+          padding-right: 14px
+
+          .rating_mini
+            float: right
+
+          img
+            float: left
+            margin-left: 13px
+
+          p
+            float: right
+
+          .button_wrap a
+            float: right
+            margin-left: 30px
+            margin-right: 0
+
+    .profile_column
+      float: left
+      width: 215px
+      background-color: white
+
+      .username
+        margin-top: 5px
+
+      .userpic
+        margin-top: 5px
+
+        img
+          border: 1px solid #C6C6C6
+          +border-radius(2px)
+
+      .activity
+        font-size: 90%
+        margin: 0 auto
+        overflow: hidden
+        width: 97px
+
+        .activity_level
+          margin-top: -2px
+
+        .activity_bar
+          line-height: 18px
+          margin-top: -5px
+          color: #aeb0b2
+
+        span
+          float: left
+
+          &.activity_left
+            margin-right: 2px
+
+          &.activity_right
+            margin-left: 2px
+
+          &.bar
+            display: block
+            width: 67px
+            height: 7px
+            background= image_url("activitybar_inner.gif") -130px 0 "no-repeat"
+            border-right: 1px solid #858585
+            border-left: 1px solid #8b8d62
+            margin-top: 6px
+
+      address
+        color: #333
+        font-style: normal
+        line-height: 13px
+        margin: 12px 0 5px 0
+
+      .action
+        padding-left: 30px
+
+        &.edit_profile
+          background= "transparent" image_url("icons.png") 0 -64px "no-repeat"
+          &:hover
+            background-position: 0 -79px
+
+  // End of Frontpage Spinner
+  // Frontpage Apps
+  #notification-application
+    width: 540px
+
+  .pictures_wrapper
+    #upload-pictures, .upload-pictures
+      :width 60px
+      :height 60px
+      :border 1px solid #c6c6c6
+      :position relative
+      :float left
+      :background #fff
+      :margin-top 1px
+      +border-radius(4px)
+      
+    .box_upload_text
+      :position absolute
+      :bottom 2px
+      :left 5px
+      :font-size 10px
+      :width 50px
+      
+    .box_upload_plus
+      :position absolute
+      :top -10px
+      :right 3px
+      :font-size 26px
+      :color #9da60a
+      
+    .pictures
+      :float left
+    
+    .picture
+      :width 60px
+      :height 60px
+      :border 1px solid #c6c6c6
+      +border-radius(4px)
+      :background #fff
+      :margin 1px
+      :text-align center
+      :line-height 92px
+    
+    .arrow_left
+      +arrow(-80px, -31px)
+      :margin-right 4px
+    .arrow_right
+      +arrow(-96px, -31px)
+      :margin-left 4px
+
+  .rating_medium
+    background= "transparent" image_url("rating_medium.png") "scroll" "no-repeat" 0 0 
+    width: 80px
+    height: 16px
+
+    .current_rating
+      background: inherit
+      width: inherit
+      height: inherit
+      background-position: 0 -16px
+
+      @for !i from 0 through 5
+        &.rating_#{!i}
+          width= 16px * !i
+
+      &.rating_5
+        :width= 16px*4.5
+
+  #impressum, #contact, #agb
+    :width 785px 
+    :float left
+    .no-margin
+      :margin 0
+    .details
+      :margin 0 0 0 15px
+
+  .wel_heading
+    :position relative
+    :height 20px
+    h1, h2, h3, h4, h5, h6
+      :font
+        :family "Arial Rounded MT", "Arial", sans-serif
+        :size 15px
+        :weight bold
+      :line-height 18px
+      :text-transform uppercase
+      :position absolute
+      :right 30px
+      :background #ffffff 
+      :z-index 20
+      :padding 0 5px
+    hr
+      :position absolute
+      :border none
+      :border-bottom= 1px "solid" !BORDER_COLOR2
+      :top 2px
+      :left 0
+      :z-index 1
+      :width 100%
+
+// Universal content classes
+.c_strong
+  :font-weight bold
+
+.c_italic
+  :font-style italic
+
+.c_underline
+  :text-decoration underline
+
+// Include your non-mixin partials here.
+@import partials/profile.sass
+@import partials/applications.sass
+@import partials/boxy.sass
+@import partials/gadget.sass
+@import partials/gifts.sass
+@import partials/intro.sass
+@import partials/weltut.sass
+@import partials/form.sass
+@import partials/col3.sass
+@import partials/mail.sass
+@import partials/tagcloud.sass
+//  vim: set ts=8 sw=2 tw=0 ft=sass:

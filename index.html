@@ -2,230 +2,96 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Pascal Hartig <phartig@weluse.de>" />
+    <meta name="author" content="Daniel Banck <dbanck@weluse.de>" />
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/highlighter/shCore.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/highlighter/shThemeDefault.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <title>Campfire One - Git vs. Subversion</title>
+    <title>Campfire One - Sass</title>
 </head>
 <body>
     <section id="presentation">
         <div class="slide intro">
-            <h1>Eine Kurzeinführung</h1>
-            <h2>Pascal Hartig</h2>
+            <h1>Sass - Style with attitude</h1>
+            <h2>Daniel Banck</h2>
             <p>
-                <strong>Campfire One</strong>, 16. März 2010
+                <strong>Campfire One</strong>, 30. März 2010
             </p>
         </div>
         <div class="slide">
+            <h2>Was ist Sass? Sass...</h2>
+            <ul>
+                <li>... ist eine Metasprache fuer CSS</li>
+                <li>... wurde von Nathan Weizenbaum entwickelt</li>
+                <li>... ermoeglicht die einfache Erstellung von Stylesheets</li>
+                <li>...Script erweitert Sass um eine einfache Scriptsprache</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>CSS</h2>
+            <ul>
+                <li>Aufwending zu schreiben</li>
+                <li>Viele Wiederholungen, weil kein Verschachtelung</li>
+                <li>Problem bei URLs</li>
+                <li>...</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>Was zeichnet Sass aus?</h2>
+            <ul>
+                <li>Huebsch</li>
+                <li>Verschachtelung</li>
+                <li>Mathematik</li>
+                <li>Variablen</li>
+                <li>Mixins (Funktionen)</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>Huebsch</h2>
+            <div class="big"><img src="images/beauty.png" alt="Sass beauty" /></div>
+        </div>
+        <div class="slide">
+            <h2>Verschachtelung</h2>
+            <div class="big"><img src="images/nesting.png" alt="Sass nesting" /></div>
+        </div>
+        <div class="slide">
+            <h2>Variablen + Mathematik</h2>
+            <div class="big"><img src="images/variables.png" alt="Sass variablen" /></div>
+        </div>
+        <div class="slide">
+            <h2>Mixins</h2>
+            <div class="big"><img src="images/mixins.png" alt="Sass mixins" /></div>
+        </div>
+        <div class="slide compass">
+            <h2>Compass</h2>
+            <ul>
+                <li><q>Stylesheet Entwicklungswerkzeug</q></li>
+                <li>Support vieler CSS Frameworks</li>
+                <li>Generiert automatisch Stylesheets</li>
+                <li>URL handling</li>
+                <li>http://github.com/chriseppstein/compass</li>
+                <li>Einfach als gem installierbar</li>
+            </ul>
+        </div>
+        <div class="slide compass">
+            <h2>config.rb</h2>
+            <pre class="brush: ruby; gutter: false;">
+              # Require any additional compass plugins here.
+              project_type = :stand_alone
+              # Set this to the root of your project when deployed:
+              http_path = ""
+              css_dir = "stylesheets"
+              sass_dir = "src"
+              images_dir = "images"
+              http_images_path = "../images/"
+              output_style = :compact
+            </pre>
+        </div>
+        <div class="slide compass">
             <div class="big">
-                <div>Was ist Node?</div>
+                <div>Beispiel?</div>
             </div>
         </div>
-        <div class="slide">
-            <h2>Node ist</h2>
-            <ul>
-                <li>Evented I/O for V8 Javascript</li>
-                <li>V8 ist die JS-Engine von Google Chrome</li>
-                <li>hervorragend geeignet für COMET-Anwendungen</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>V8 ist</h2>
-            <ul>
-                <li>Entwickelt von einem kleinen dänischen Google-Team</li>
-                <li>Lead-Developer ist Lars Bak, einer der führenden
-                    VM-Entwickler mit über 20 Jahren Erfahrung</li>
-                <li>Er entwickelte HotSpot (Suns/Oracles Java-VM) » 20x
-                    Performance-Steigerung</li>
-                <li>Kein JIT, kompiliert zu Assembler</li>
-                <li>Unabhängig von Google Chrome</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Einschränkungen</h2>
-            <ul>
-                <li>Kein Bytecode</li>
-                <li>Keine Threads</li>
-                <li>Keine Prozesse</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Das macht node.js besonders</h2>
-            <ul>
-                <li>Nicht-blockierendes IO</li>
-                <li>Funktionalität für System Calls</li>
-                <li>HTTP-Bibliothek</li>
-                <li>Modularer Aufbau</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <div class="big"><div>Warum nicht-blockierend?</div></div>
-        </div>
-        <div class="slide">
-            <h2>Vorteile von non-blocking</h2>
-            <ul>
-                <li>nginx: nicht-blockierend</li>
-                <li>apache: threaded</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <img src="images/apache_nginx.png" alt="Apache vs Nginx" class="full" />
-        </div>
-        <div class="slide">
-            <h2>Vorteile von non-blocking</h2>
-            <ul>
-                <li>Nicht-blockierende Server können mehr Requests in einem
-                    Zeitinterval behandeln.</li>
-                <li>Threaded Server brauchen verdammt viel Speicher!</li>
-                <li>Comet skaliert nicht mit threaded Servern.</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Traditionelles I/O</h2>
-            <pre class="brush: javascript; gutter: false;">
-                var data = file.read("data.txt");
-                doSomethingWith(data);
-            </pre>
-            <p>Irgendetwas stimmt hier nicht.</p>
-        </div>
-        <div class="slide troll">
-            <h2>Traditionelles I/O - FAIL!</h2>
-            <pre class="brush: javascript; gutter: false;">
-                var data = file.read("data.txt");
-                // zzzzZZZZZzzzz
-                doSomethingWith(data);
-            </pre>
-            <p>Verschwendung von CPU-Zyklen! Problem?</p>
-        </div>
-        <div class="slide">
-            <h2>Async I/O</h2>
-            <pre class="brush: javascript; gutter: false;">
-file.read("data.txt", function (data) {
-    doSomethingWith(data);
-});
-
-// Der Programmfluss laeuft weiter.
-doSomethingElse();
-            </pre>
-            <p>WIN!</p>
-        </div>
-        <div class="slide">
-            <h2>Javascript?</h2>
-            <ul>
-                <li>Wir alle können JavaScript.</li>
-                <li>JavaScript ist inzwischen eine der wichtigsten Sprachen im
-                    Web.</li>
-                <li>Viele große Unternehmen stecken einen Batzen Geld in die
-                    Entwicklung von JavaScript.</li>
-                <li>Wir können auf Serverseite genauso event-basiert
-                    programmieren wie im Frontend.</li>
-            </ul>
-        </div>
-        <div class="slide">
-            <h2>Beispiel für Event-Programmierung</h2>
-            <pre class="brush: javascript; gutter: false; toolbar: false;">
-document.addEventListener('click', function (event) {
-    alert(event);
-}, false);
-            </pre>
-            <p>Anonyme Funktionen sind fester Bestandteil der Sprache.</p>
-        </div>
-        <div class="slide">
-            <div class="big">
-                <div>Was bietet node.js?</div>
-            </div>
-        </div>
-        <div class="slide">
-            <h2>Module</h2>
-            hello.js
-            <pre class="brush: javascript; gutter: false;">
-exports.world = function () {
-    return "Hello World!";
-};
-            </pre>
-            main.js
-            <pre class="brush: javascript; gutter: false;">
-var hello = require('./hello'),
-    sys   = require('sys');
-
-    sys.puts(hello.world());
-            </pre>
-        </div>
-        <div class="slide">
-            <h2>Module - Output</h2>
-            <pre>
-                $ node main.js
-                Hello World!
-            </pre>
-        </div>
-        <div class="slide">
-            <h2>HTTP-Server</h2>
-            <pre class="brush: javascript; gutter: false;">
-var http = require('http');
-http.createServer(function (req, res) {
-    setTimeout(function () {
-        res.writeHeader(200, {'Content-Type': 'text/plain'});
-        res.write("Danke fuer deine Geduld!");
-        res.close();
-    }, 1000);
-}).listen(4000);
-            </pre>
-        </div>
-        <div class="slide">
-            <h2>HTTP-Server: Ausgabe</h2>
-            <pre>
-$ curl localhost:4000
-# Eine Sekunde Pause
-Danke fuer deine Geduld!
-            </pre>
-        </div>
-        <div class="slide">
-            <h2>TCP-Server</h2>
-            <pre class="brush: javascript; gutter: false;">
-var tcp = require('tcp');
-tcp.createServer(function (socket) {
-    socket.addListener('connect', function () {
-        socket.write("Was geeeht?\n»");
-    });
-    socket.addListener('data', function (data) {
-        socket.write(data);
-    });
-}).listen(4000);
-            </pre>
-        </div>
-        <div class="slide">
-            <h2>TCP-Server: Ausgabe</h2>
-            <pre>
-$ nc localhost 4000
-Was geeeht?
-» Toll!
-Toll!
-            </pre>
-        </div>
-        <div class="slide">
-            <h2>Vorsicht!</h2>
-            <h3>Es gibt nur einen Thread!</h3>
-            
-            <pre class="brush: javascript; gutter: false;">
-file.read('file.txt', function (data) {
-    // Niemals ausgeloest
-});
-while (true) {
-    // Blockiert den gesamten Prozess!
-}
-            </pre>
-            <p><strong>Merke:</strong> node.js ist eine schlechte Idee für CPU-gebundene Algorithmen.</p>
-            <p>Zukünftige Lösung: WebWorkers!</p>
-        </div>
-
-        <div class="slide">
-            <div class="big">
-                <div>Kleines Beispiel gefällig?</div>
-            </div>
-        </div>
-
         <div class="slide">
             <div class="big">
                 <div>Danke für die Aufmerksamkeit!</div>
@@ -241,7 +107,7 @@ while (true) {
     <script type="text/javascript" charset="utf-8"
             src="js/highlighter/shCore.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="js/highlighter/shBrushJScript.js"></script>
+            src="js/highlighter/shBrushRuby.js"></script>
     <script type="text/javascript" charset="utf-8">
     //<![CDATA[
     $("#presentation").presentation();

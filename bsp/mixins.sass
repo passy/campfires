@@ -1,0 +1,199 @@
+// Home of *reusable* mixins.
+
+=inline_list
+  :list-style none
+  :margin 0
+
+  li
+    :display inline
+
+=arrow(!position_top, !position_left)
+  :margin-top 21px
+  background= image_url("icons.png") !position_top !position_left "no-repeat"
+  :width 10px
+  :height 17px
+  
+=star(!position_left, !position_top)
+  background= image_url("icons.png") !position_left !position_top "no-repeat"
+  width= 16px
+  height= 16px
+
+=sub_side2(!align)
+  float= !align
+  :height 35px
+  @if !align == "left"
+    background= image_url("gadget_add_button.png") 0 -35px "no-repeat"
+  @else
+    background= image_url("gadget_add_button.png") 0 -70px "no-repeat"
+
+=box2(!name, !align)
+  ##{!name}_left
+    +sub_side2("left")
+  ##{!name}_right
+    +sub_side2("right")
+
+  //:width 95px
+  background= image_url("gadget_add_button.png") 0 0 "repeat-x"
+  :height 35px
+  :color #fff
+  :font-weight bold
+  :right 10px
+  :top 245px
+  :position absolute
+  float= !align
+  :line-height 35px
+  span
+    :margin-left 10px
+    :margin-right 5px
+  
+=border-radius(!radius, !direction="none")
+  !_direction = ""
+  @if !direction != "none"
+    !_direction = "-" + !direction
+
+  border-radius#{!_direction}= !radius
+  -moz-border-radius#{!_direction}= !radius
+  -webkit-border-radius#{!_direction}= !radius
+  -khtml-border-radius#{!_direction}= !radius
+
+=box-shadow(!voffset, !hoffset, !radius, !color)
+  box-shadow= !voffset !hoffset !radius !color
+  -moz-box-shadow= !voffset !hoffset !radius !color
+  -webkit-box-shadow= !voffset !hoffset !radius !color
+  -khtml-box-shadow= !voffset !hoffset !radius !color
+
+// Shortcut for multiple parameters (e. g. more than one direction) but all
+// engine prefixes
+=box-shadow-full(!parameters)
+  box-shadow= !parameters
+  -moz-box-shadow= !parameters
+  -webkit-box-shadow= !parameters
+  -khtml-box-shadow= !parameters
+
+=mini_star(!multiply = 0)
+  .rating_mini
+    background= "transparent" image_url("rating_mini.png") "scroll" 0 (-11px * !multiply) - 11px "no-repeat" 
+    width: 55px
+    height: 11px
+
+    .current_rating
+      background: inherit
+      width: inherit
+      height: inherit
+      background-position= 0 (-11px * !multiply)
+
+      @for !i from 0 through 5
+        &.rating_#{!i}
+          width= 20% * !i
+
+=sub_side(!align)
+  float= !align
+  :height 25px
+  @if !align == "left"
+    background= image_url("gadget.png") 0 -25px "no-repeat"
+  @else
+    background= image_url("gadget.png") 0 -50px "no-repeat"
+
+=box(!name, !align)
+  ##{!name}_left
+    +sub_side("left")
+  ##{!name}_right
+    +sub_side("right")
+
+  :width 170px
+  background= image_url("gadget.png") 0 0 "repeat-x"
+  :height 25px
+  :margin-top -2px
+  :color #fff
+  :font-weight bold
+  float= !align
+  span
+    :margin-left 10px
+    
+//The junglemenu consists of two elements:
+  A class for the main container inserting a liana in the background and
+  a class for an unordered list for a left wrapper inside the main content.
+=junglemenu
+  #container.junglemenu
+    background= "white" image_url("jungle_bg.png") "scroll" "no-repeat" 20px 70px
+
+  ul.junglemenu
+    margin-left: 45px
+    min-height: 730px
+    li
+      list-style: none
+      margin-top: 2em
+      font-size: 115%
+
+      a
+        color= !TEXT_COLOR1
+
+    li.active
+      a
+        font-weight: bold
+        color= !LINK_COLOR1
+
+    li.add
+      margin-top: 4em
+      font-size: 90%
+
+      a
+        color= !LINK_COLOR1
+
+=generate_buttons(!position_left, !position_top)  
+  background= image_url("buttons.png") !position_left !position_top "no-repeat"
+  :width 60px
+  :height 76px
+  :position absolute
+  
+=buttons
+  .got_it
+    +generate_buttons(0, 0)
+    :left 13px
+    :top 206px
+  
+  .want_it
+    +generate_buttons(-60px, 0)
+    :left 147px
+    :top 206px
+    
+  .edit_pic
+    background= image_url("edit.png") "scroll" "no-repeat"
+    :position absolute
+    :left 195px
+    :top 8px
+    :width 16px
+    :height 16px
+    :cursor pointer
+    :display none
+    
+  .box_big.middle:hover .edit_pic
+    :display block
+
+=menu_hover_icon(!x, !y, !class="m_icon")
+  .#{!class}
+    :background-position= !x !y
+  &:hover .#{!class}, &.active .#{!class}
+    :background-position= !x (!y - 16px)
+
+=gender-radio
+  .mfradio
+    background= "transparent" image_url("icons.png") "scroll" "no-repeat" 0 -111px
+    padding-left: 10px
+    padding-top: 1px
+    margin-left: 10px
+
+    &.male
+      background-position: 0 -128px
+
+=input_field(!color=false)
+  padding: 2px
+  margin: 4px 0 0 8px
+  height: 12px
+  width: 224px
+  font-weight: bold
+  @if !color
+    border: 1px solid #c6c6c6
+    +border-radius(4px)
+    &:focus
+      border-color: #76851F
