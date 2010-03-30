@@ -55,7 +55,7 @@ body .big div { display: table-cell; vertical-align: middle; text-align: center;
 /* line 64, ../src/screen.sass */
 body ul { padding-right: 7%; }
 /* line 66, ../src/screen.sass */
-body ul li { list-style-position: outside; list-style: none; line-height: 2; background: transparent url('../images/arrow_small.png?1269953771') scroll no-repeat top left; padding-left: 50px; }
+body ul li { list-style-position: outside; list-style: none; line-height: 2; background: transparent url('../images/arrow_small.png?1269961276') scroll no-repeat top left; padding-left: 50px; }
 /* line 73, ../src/screen.sass */
 body blockquote { line-height: 0.85; }
 /* line 76, ../src/screen.sass */
@@ -63,19 +63,19 @@ body blockquote:before { font-size: 1000%; font-family: "Georgia", serif; conten
 /* line 83, ../src/screen.sass */
 body #presentation { position: relative; display: block; width: 1024px; height: 768px; margin: 3% auto; }
 /* line 90, ../src/screen.sass */
-body .slide { width: 784px; height: 628px; position: relative; background: transparent url('../images/background2.jpg?1269953450') scroll no-repeat top left; background-size: 1024px 768px; -moz-background-size: 1024px 768px; display: block; padding: 70px 120px 70px 120px; }
+body .slide { width: 784px; height: 628px; position: relative; background: transparent url('../images/background2.jpg?1269961276') scroll no-repeat top left; background-size: 1024px 768px; -moz-background-size: 1024px 768px; display: block; padding: 70px 120px 70px 120px; }
 /* line 100, ../src/screen.sass */
 body .slide.nopadd { padding: 0; }
 /* line 103, ../src/screen.sass */
-body .slide.compass { background-image: url('../images/background.png?1269955602'); }
+body .slide.compass { background-image: url('../images/background.png?1269961276'); }
 /* line 106, ../src/screen.sass */
 body .slide h2 { margin-bottom: 10%; }
 /* line 109, ../src/screen.sass */
-body .slide.intro { color: #757575; display: none; background-image: url('../images/background-intro.png?1269953203'); }
+body .slide.intro { color: #757575; display: none; background-image: url('../images/background-intro.png?1269961276'); }
 /* line 115, ../src/screen.sass */
 body .slide.intro h1 { position: absolute; top: 414px; left: 250px; }
 /* line 120, ../src/screen.sass */
-body .slide.intro h2 { font-size: 150%; position: absolute; top: 660px; color: #FFB3FF; }
+body .slide.intro h2 { font-size: 150%; position: absolute; top: 660px; color: #CE4DD6; }
 /* line 126, ../src/screen.sass */
 body .slide.intro p { position: absolute; top: 720px; }
 /* line 130, ../src/screen.sass */
