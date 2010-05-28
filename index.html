@@ -419,7 +419,296 @@
         <div class="slide">
           <section class="center intro">
               <h1>Sass3</h1>
+              <h2>Syntactically Awesome StyleSheets</h2>
+              <p><img src="src/sass.gif" /></p>
           </section>
+        </div>
+
+        <div class="slide">
+        	<section>
+                <h3>Timeline</h3>
+                <ul class="bullets">
+                    <li><em>31. Maerz:</em> Erste Beta von <span class="css">Sass 3</span></li>
+                    <li><em>26. April:</em> Passy stelly Yoosello um</li>
+                    <li><em>26. April:</em> Passy stelly Yoosello um</li>
+                    <li><em>10. Mai:</em> Release von <span class="css">Sass3</span> und <span class="html">Haml</span></li>
+                    <li><em>25. Mai:</em> Passy entfernt CSS aus dem
+                        Yoosello-Repository</li>
+                </ul>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<h3>Neue Features</h3>
+                <ul class="bullets">
+                    <li>Neues Format: <span class="key">SCSS</span> - Sassy CSS</li>
+                    <li>Syntax-Aenderungen</li>
+                    <li>Farb-Funktionen</li>
+                    <li>Neues Konvertierungs-Tool</li>
+                    <li>@extend</li>
+                </ul>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<h3>Vorbereitungen</h3>
+                <pre>gem install haml</pre>
+                <pre>gem install compass</pre>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section class="center">
+        		<h3>Dieses Compass war doch gleich &hellip;?</h3>
+                <p>Compass ist eine Bibliothek mit Tools und Mixins fuer Sass.</p>
+        	</section>
+        </div>
+
+        <div class="slide">
+            <section>
+            	<h3>Syntax-Aenderungen</h3>
+                <ul class="bullets">
+                    <li>$var statt !var</li>
+                    <li>= ist tot</li>
+                    <li>neue String-Interpretation</li>
+                    <li>- in Namen (Mixins, Variablen)</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="slide">
+        	<section>
+                <header>
+        		<h1>$var</h1>
+                </header>
+                <p>
+                    <span class="css">style.sass</span>
+                    <pre>
+$height: 34px
+
+h1
+  height: $height
+  line-height: $height/2 + 2px
+                    </pre>
+                    <span class="key">style.css</span>
+                    <pre>
+h1 {
+  height: 34px;
+  line-height: 19px; }
+                    </pre>
+                </p>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+                <header>
+                    <h1>Zum Vergleich</h1>
+                </header>
+
+                <span class="html">style.sass2</span>
+                <pre>
+!height= 34px
+
+h1
+  height= !height
+  line-height= !height/2 + 2px
+  font-weight: bold
+                </pre>
+                <span class="css">style.sass3</span>
+                <pre>
+$height: 34px
+
+h1
+  height: $height
+  line-height: $height/2 + 2px
+  font-weight: bold
+                </pre>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<header>
+        			<h1>SCSS - Um es mal erwaehnt zu haben</h1>
+        		</header>
+
+                <p>Nur eine andere Syntax mit den selben Features. Soll es
+                    Umsteigern vereinfachen.</p>
+
+                <pre>
+$height: 34px;
+
+h1 {
+  height: $height;
+  line-height: $height / 2 + 2px; }
+                </pre>
+
+                <ul class="bullets">
+                    <li>Curly Braces statt Python-Like Einrueckung</li>
+                    <li>@mixin fuer Mixin-Definitionen</li>
+                    <li>@include fuer Mixin-Aufrufe</li>
+                    <li>Wird Sass niemals ersetzen!</li>
+                </ul>
+
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<header>
+        			<h1>@extend - Selector Inheritance</h1>
+        		</header>
+
+                <span class="html">error.html</span>
+                <pre>
+&lt;div class="error seriousError"&gt;
+Oh no! You've been hacked!
+&lt;/div&gt;
+                </pre>
+                <span class="key">style.css</span>
+                <pre>
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  border-width: 3px;
+}
+                </pre>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section class="center">
+        		<h1>Nervig</h1>
+                <p>Vergisst man .error, sieht es scheisse aus.</p>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<header>
+        			<h1>Besser: @extend</h1>
+        		</header>
+                <span class="css">style.sass</span>
+                <pre>
+.error
+  border: 1px #ff0
+  background-color: #fdd
+
+.seriousError
+  <b>@extend .error</b>
+  border-width: 3px
+                </pre>
+                <span class="key">style.css</span>
+                <pre>
+.error, .seriousError {
+  border: 1px yellow;
+  background-color: #ffdddd; }
+
+.seriousError {
+  border-width: 3px; }
+                </pre>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section class="center">
+        		<h1>Compass CSS 3 Awesomeness</h1>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<header>
+        			<h1>CSS3-Beispiel</h1>
+        		</header>
+
+                <span class="css">css3.sass</span>
+                <pre>
+@import "compass/css3/border-radius"
+@import "compass/css3/box-shadow"
+@import "compass/css3/text-shadow"
+                    
+#loading
+  +border-radius(5px)
+  +box-shadow(1px, 1px, 5px, transparentize(black, 0.7))
+  +text-shadow(0, 1px, 0, #333)
+  position: fixed
+  top: 10px
+  right: 10px
+  display: none
+
+  background: rgba(0, 0, 0, 0.5)
+  padding: 3px
+  color: white
+                </pre>
+            </section>
+        </div>
+        <div class="slide">
+            <section>
+                <header>
+                    <h1>CSS3-Beispiel</h1>
+                </header>
+
+                <span class="key">css3.css</span>
+                <pre>
+#loading{
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+-o-border-radius:5px;
+-ms-border-radius:5px;
+-khtml-border-radius:5px;
+border-radius:5px;
+-moz-box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);
+-webkit-box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);
+-o-box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);
+box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);
+text-shadow:0 1px 0 #333;
+position:fixed;
+top:10px;
+right:10px;
+display:none;
+background:rgba(0, 0, 0, 0.5);
+padding:3px;
+color:#fff}
+                </pre>
+
+        	</section>
+        </div>
+        <div class="slide">
+            <section>
+            	<header>
+            		<h1>sass-convert</h1>
+            	</header>
+
+                <p>Von <span class="js">Sass2</span> zu <span class="css">Sass3</span></p>
+                <pre>sass-convert -R --from sass2 --to sass --in-place sass/</pre>
+
+                <p>CSS zu Sass</p>
+                <pre>sass-convert file.css &gt; file.sass</pre>
+            </section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<header>
+        			<h1>Projekte mit Sass</h1>
+        		</header>
+
+                <ul class="bullets">
+                    <li>weluse.de 2.0 <span class="css">Sass3</span></li>
+                    <li>Yoosello <span class="css">Sass3</span></li>
+                    <li>miGadgets <span class="css">Sass3</span></li>
+                    <li>Medimops Front-End <span class="css">Sass3</span></li>
+                    <li>welu.se</li>
+                    <li>welgate</li>
+                    <li>MarksMan</li>
+                </ul>
+        	</section>
         </div>
       </div> <!-- slides -->
        
