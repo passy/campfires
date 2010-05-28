@@ -24,7 +24,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <title>HTML5 presentation</title>
+    <title>Sass3 presentation</title>
     
     <script src="http://www.google.com/jsapi?key=ABQIAAAAciAr-YcJOX4sVbBQF5yFOBRI2zyDwyJhdEdO9xa_t4eLz9AjchSe2DA_dgZ-3Akmxq1pd4ElyBEStA"></script>
     <script>google.load("maps", "2");</script>
@@ -707,6 +707,64 @@ color:#fff}
                     <li>welu.se</li>
                     <li>welgate</li>
                     <li>MarksMan</li>
+                </ul>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section class="intro center">
+        		<h1>Cascading Stylesheets</h1>
+        		<h2>Eine unbequeme Wahrheit</h2>
+        	</section>
+        </div>
+
+        <div class="slide">
+        	<section class="center">
+                <h3>.angewendet links nach rechts wird CSS</h3>
+                <pre>
+                    #main-content ul.side-menu li div
+                </pre>
+        	</section>
+        </div>
+
+        <div class="slide">
+            <section>
+            	<header>
+            		<h1>Folgen</h1>
+            	</header>
+                <ul class="bullets">
+                	<li>Es wird immer zunaechst das CSS analysiert.</li>
+                	<li>Je unspezifischer die Selektoren, besonders die letzten,
+                    desto langsamer das Rendering.</li>
+                    <li>miGadgets ist unglaublich langsam! (~3500 Zeilen CSS)
+                        Firebug beinahe unnutzbar.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="slide">
+            <section>
+            	<header>
+            		<h1>Mehr Folgen</h1>
+            	</header>
+                <ul class="bullets">
+                    <li>Gerade im Hinblick auf mobile Geraete, kann man sich
+                        Latenzen durch CSS nicht erlauben.</li>
+                    <li>Gewisse DOM-Operationen erfordern ein Rerendering der
+                        gesamten Seite.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="slide">
+        	<section>
+        		<header>
+        			<h1>Lektionen</h1>
+        		</header>
+                <ul class="bullets">
+                	<li>CSS klein halten.</li>
+                	<li>CSS dynamisch nachladen!</li>
+                	<li>Keine Monster-Stylesheets</li>
                 </ul>
         	</section>
         </div>
